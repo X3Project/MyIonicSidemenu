@@ -1,0 +1,9 @@
+<ion-view view-title="Todolists">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="list in alllists" href="#/app/todos/{{list.listid}}">
+        Name: {{list.name}} Id: {{list.listid}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
