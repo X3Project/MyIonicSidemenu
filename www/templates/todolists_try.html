@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="http://code.ionicframework.com/1.0.0-beta.14/css/ionic.css" />
-	<script src="http://code.ionicframework.com/1.0.0-beta.14/js/ionic.bundle.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body ng-controller="TodolistCtrl">
-<ion-view view-title="Todolists">
+<ion-view view-title="Todolists0">
   <ion-nav-back-button>
   </ion-nav-back-button>
   <ion-nav-buttons side="right">
-	<a ui-sref="x3.todoListNew" class="btn-primary btn-sm btn-assertive nodecoration">Add New List</a>
+	<a ui-sref="x3.todoListNew" class="btn-primary btn-lg nodecoration">Add New List</a>
   </ion-nav-buttons>
   <ion-content>
 <!--   <ion-scroll direction="x" style="width: 500px; height: 500px"> -->
@@ -18,7 +10,7 @@
       <ion-item ng-repeat="list in alllists" > 
 		<div ui-sref="x3.todos({listid:list.listid})"> <!--href="#/x3/todos/{{list.listid}}"> -->
 	        Name: {{list.name}} 
-	        <br/>
+	        <br/><br/>
 	        Id: {{list.listid}}
         </div>
 <!-- #######         edit the list (set selected)  "href="#/x3/todolist/{{list.listid}}"-->
@@ -47,6 +39,3 @@
 <!--   </ion-scroll>	 -->
   </ion-content>
 </ion-view>
-
-</body>
-</html>

@@ -1,0 +1,41 @@
+<!-- <ion-nav-view> -->
+<!-- <ion-nav-title>Details für Task</ion-nav-title> -->
+<!-- </ion-nav-view> -->
+<ion-view title="Details for {{task.description}}">
+	<ion-content>
+		<ion-item >
+			Beschreibung
+			<br/>{{task.description}}
+		</ion-item >
+	
+		<ion-item >
+			Aufwand
+			<br/>{{task.effort}}
+		</ion-item >
+	
+	  	<ion-item >
+	    	zuletzt geändert am
+	    	<br/>{{task.lastChange}}
+	  	</ion-item >  
+	
+		<div>
+		  <a class="btn btn-primary" ui-sref="x3.taskEdit({id:task.taskID})">Edit</a>
+		</div>
+	</ion-content>
+</ion-view>
+
+<!-- <table class="table movietable"> -->
+<!--   <tr> -->
+<!--     <td><h3>Details für {{todo.title}}</h3></td> -->
+<!--     <td></td> -->
+<!--   </tr> -->
+<!--   <tr> -->
+<!--     <td>Todo Bezeichnung</td> -->
+<!--     <td>{{todo.title}}</td> -->
+<!--   </tr> -->
+<!--   <tr> -->
+<!--     <td>Beschreibung</td> -->
+<!--     <td>{{todo.details}}</td> -->
+<!--   </tr> -->
+<!-- </table> -->
+

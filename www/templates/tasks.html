@@ -1,0 +1,19 @@
+<ion-view view-title="Tasks for Todo">
+  <ion-content>
+<!--   <ion-nav-buttons side="left"> -->
+<!--       <a href="/#/app/todolists" menu-toggle="left" class="button button-icon icon ion-navicon"></a> -->
+<!--   </ion-nav-buttons> -->
+    <ion-list>
+      <ion-item ng-repeat="task in tasks">
+        {{task.description}} <br/> 
+        Aufwand [h]: {{task.effort}}
+		<!-- #######         view the task (set selected) -->
+		<a ui-sref="x3.taskView({id:task.taskID})">
+			<button id="button-3" class="button icon-right ion-eye button-clear button-positive"></button>
+		</a>
+		<!-- #######		remove the task button		 -->
+		<button id="button-1" class="button icon-right ion-trash-a button-clear" ng-click="removeTask(task)" style="float: right;"></button>        
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

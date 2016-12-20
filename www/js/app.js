@@ -25,51 +25,57 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-  .state('app', {
-    url: "/app",
+  .state('x3', {
+    url: "/x3",		//muss "/x3" stehen
     abstract: true,
-    templateUrl: "templates/menu.html",
-    controller: 'AppCtrl'
+//    views: {
+//    	'x3': {
+    	templateUrl: 'templates/base.html',
+        controller: 'AppCtrl'
+//    	}
+//    }
   })
 
-  .state('app.search', {
-    url: "/search",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/search.html"
-      }
-    }
-  })
 
-  .state('app.browse', {
-    url: "/browse",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
-    }
-  })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-    .state('app.todolists', {
+  .state('x3.todolists', {
       url: "/todolists",
       views: {
-        'menuContent': {
+        'menuContent': {    //ist in template von abstract (base /menu) als ion-nav-view name= 
           templateUrl: "templates/todolists.html",
           controller: 'TodolistCtrl'
         }
       }
+//      controller: 'TodolistCtrl'
     })
 
-    .state('app.todos', {
+//  .state('x3.todoListView', { //state for showing single list
+//    url: '/todolists/:id/view',
+//    templateUrl: 'templates/todolist_view.html',
+//    controller: 'TodolistViewCtrl'  
+//  })
+    
+  .state('x3.todoListNew', { //state for adding a new list
+    url: '/todolists/new',
+    views: {
+        'menuContent': {
+		    templateUrl: 'templates/todolist_add.html',
+		    controller: 'TodolistCreateCtrl'
+        }
+    }
+  })
+  
+    
+  .state('x3.todoListEdit', {
+	  url: "/todolists/:listid",
+	  views: {
+	  		'menuContent': {
+	  			templateUrl: "templates/todolistedit.html",
+	  			controller: 'TodolistEditCtrl'
+	  		}
+	  }
+  })
+    
+   .state('x3.todos', {
       url: "/todos/:listid",
       views: {
         'menuContent': {
@@ -79,25 +85,70 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
     
-    .state('app.tasks', {
+
+  .state('x3.todoView', { //state for showing single todo
+    url: '/todos/:id/view',
+    views: {
+		'menuContent': {
+			templateUrl: 'templates/todo_view.html',
+			controller: 'TodoViewCtrl'  
+		}
+    }
+  })
+  
+  .state('x3.todoEdit', { //state for editing single todo
+    url: '/todos/:id/edit',
+    views: {
+		'menuContent': {
+			templateUrl: 'templates/todo_edit.html',
+			controller: 'TodoEditCtrl'  
+		}
+    }
+  })
+    
+    
+  .state('x3.tasks', {
       url: "/tasks/:todoid",
       views: {
         'menuContent': {
-          templateUrl: "templates/taskspertodo.html",
+          //templateUrl: "templates/taskspertodo.html",
+        	templateUrl: "templates/tasks.html",	
           controller: 'TaskCtrl'
         }
       }
     })
+
+  .state('x3.taskView', { //state for showing single task
+    url: '/tasks/:id/view',
+    views: {
+		'menuContent': {
+			templateUrl: 'templates/task_view.html',
+			controller: 'TaskViewCtrl'  
+		}
+    }
+  })
+  
+  .state('x3.taskEdit', { //state for editing single task
+    url: '/tasks/:id/edit',
+    views: {
+		'menuContent': {
+			templateUrl: 'templates/task_edit.html',
+			controller: 'TaskEditCtrl'  
+		}
+    }
+  })
     
-  .state('app.task', {
-    url: "/tasks/:taskid/edit",
+  .state('x3.search', {
+    url: "/search",
     views: {
       'menuContent': {
-        templateUrl: "templates/taskedit.html",
-        controller: 'TaskSelectedCtrl'
+        templateUrl: "templates/search.html"
       }
     }
-  });
+  })
+
+  
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/todolists');
+  $urlRouterProvider.otherwise('/x3/todolists');
+//  $urlRouterProvider.otherwise('/x3');
 });
